@@ -3,8 +3,8 @@ class BinaryOperators:
     @staticmethod
     def addition(oper1:float,oper2:float) -> float :
         """
-        :param oper1:
-        :param oper2:
+        :param oper1: float
+        :param oper2: float
         :return: oper1+oper2
         """
         return oper1+oper2
@@ -38,8 +38,8 @@ class BinaryOperators:
         try:
            result=oper1/oper2
            return result
-        except Exception as e:
-            return e
+        except Exception as e:   #לזכור לשנותתתתתתתת
+            raise e
 
 
     @staticmethod
@@ -62,8 +62,8 @@ class BinaryOperators:
         try:
             result = oper1 % oper2
             return result
-        except Exception as e:
-            return e
+        except Exception as e:   #לזכור לשנותתתתתתתת
+            raise e
 
     @staticmethod
     def maximum(oper1:float,oper2:float) ->float:

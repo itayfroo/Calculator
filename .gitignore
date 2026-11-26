@@ -1,1 +1,1 @@
-.idea
+Add-Content .gitignore "`n.idea/workspace.xml"

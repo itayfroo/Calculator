@@ -38,8 +38,8 @@ class BinaryOperators:
         try:
            result=oper1/oper2
            return result
-        except Exception as e:   #לזכור לשנותתתתתתתת
-            raise e
+        except ArithmeticError as e:
+            raise ArithmeticError("Can't devide by zero!")
 
 
     @staticmethod
@@ -62,8 +62,8 @@ class BinaryOperators:
         try:
             result = oper1 % oper2
             return result
-        except Exception as e:   #לזכור לשנותתתתתתתת
-            raise e
+        except ArithmeticError as e:
+            raise ArithmeticError("Can't modulu by zero!")
 
     @staticmethod
     def maximum(oper1:float,oper2:float) ->float:

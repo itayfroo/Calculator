@@ -2,11 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="95370cc4-2d39-49c2-b8be-81941755fd7a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/operators/try.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/operators/unary_operators.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/exceptions/mathExceptions.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/operators/binary_operators.py" beforeDir="false" afterPath="$PROJECT_DIR$/operators/binary_operators.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/operators/unary_operators.py" beforeDir="false" afterPath="$PROJECT_DIR$/operators/unary_operators.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

@@ -1,5 +1,3 @@
-from math import factorial
-
 from operators.binary_operators import BinaryOperators
 class UnaryOperators:
 
@@ -27,5 +25,5 @@ class UnaryOperators:
         return BinaryOperators.multiplication(oper,UnaryOperators.factorial(oper-1))
 
     @staticmethod
-    def unary_Minus(oper:float) ->float:
+    def unary_minus(oper:float) ->float:
         return UnaryOperators.tilda(oper)

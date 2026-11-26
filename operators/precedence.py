@@ -1,3 +1,6 @@
+from typing import Any, Callable
+
+
 class OperatorPrecedence:
 
     def __init__(self):
@@ -9,7 +12,7 @@ class OperatorPrecedence:
         return operators
 
 
-    def get_operators_precedence(self):
+    def get_operators_precedence(self)  -> dict:
         return self._precedence
 
 

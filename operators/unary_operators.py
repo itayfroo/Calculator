@@ -25,3 +25,7 @@ class UnaryOperators:
         if oper>999:
             raise RecursionError("maximum recursion depth exceeded")
         return BinaryOperators.multiplication(oper,UnaryOperators.factorial(oper-1))
+
+    @staticmethod
+    def unary_Minus(oper:float) ->float:
+        return UnaryOperators.tilda(oper)

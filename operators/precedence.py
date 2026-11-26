@@ -9,7 +9,7 @@ class OperatorPrecedence:
         return operators
 
 
-    def get_opertors_precedence(self):
+    def get_operators_precedence(self):
         return self._precedence
 
 

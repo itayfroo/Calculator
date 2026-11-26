@@ -4,12 +4,13 @@ from typing import Any, Callable
 class OperatorPrecedence:
 
     def __init__(self):
-        self._precedence = self._precedences
+        self._precedence = {}
+        self._precedences()
 
 
     def _precedences(self):
         operators = {"+":1,"-":1,"*":2,"/":2,"^":3,"%":4,"$":5,"&":5,"@":5,"~":6,"!":6,"unary-":7}
-        return operators
+        self._precedence = operators
 
 
     def get_operators_precedence(self)  -> dict:

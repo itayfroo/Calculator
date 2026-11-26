@@ -1,6 +1,4 @@
 from exceptions import InvalidExpressionException
-from operators import precedence
-import exceptions
 from operators.precedence import OperatorPrecedence
 class Parser:
     @staticmethod

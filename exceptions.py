@@ -19,3 +19,12 @@ class FactorialException(InvalidExpressionException):
     @override
     def get_message(self):
         return self.__message
+
+
+class BracketsException(InvalidExpressionException):
+    def __init__(self,message:str =""):
+        super().__init__(message)
+
+    @override
+    def get_message(self):
+        return self.__message

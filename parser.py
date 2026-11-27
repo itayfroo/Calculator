@@ -1,4 +1,5 @@
 from exceptions import InvalidExpressionException
+from operators.precedence import OperatorPrecedence
 from validate import Validate
 
 
@@ -26,9 +27,10 @@ class Parser:
         expression_list = []
         operand_flag = False
         operand = 0
+        operators_dict = OperatorPrecedence().get_operators_precedence().keys()
         for x in parsed_expression:
-            if not Validate.check_char_validation(x):
-                raise InvalidExpressionException(f"InvalidExpressionException: a non exists operator {x}")
+            if not Validate.check_char_validation(x,operators_dict):
+                raise InvalidExpressionException(f"a non exists operator {x}")
             if x.isdigit():
                 operand = operand * 10 + float(x)
                 operand_flag = True

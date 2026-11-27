@@ -20,9 +20,9 @@ class UnaryOperators:
         if 0<=oper<2:
             return 1
         if oper<0:
-            raise FactorialException("FactorialException: cant take negative factorial!")
+            raise FactorialException("Cant take negative factorial!")
         if oper>999:
-            raise FactorialException("FactorialException: maximum recursion depth exceeded(supports up to 999!)")
+            raise FactorialException("Maximum recursion depth exceeded(supports up to 999!)")
         return BinaryOperators.multiplication(oper,UnaryOperators.factorial(oper-1))
 
     @staticmethod

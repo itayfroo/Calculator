@@ -5,7 +5,7 @@ class InvalidExpressionException(Exception):
 
     def __init__(self,message:str=""):
         super().__init__()
-        self.__message = message
+        self.__message = f"InvalidExpressionException: {message}"
 
 
     def get_message(self):
@@ -14,17 +14,12 @@ class InvalidExpressionException(Exception):
 
 class FactorialException(InvalidExpressionException):
     def __init__(self,message:str =""):
-        super().__init__(message)
+        super().__init__(f"FactorialException: {message}")
 
-    @override
-    def get_message(self):
-        return self.__message
+
 
 
 class BracketsException(InvalidExpressionException):
     def __init__(self,message:str =""):
-        super().__init__(message)
+        super().__init__(f"BracketsException: {message}")
 
-    @override
-    def get_message(self):
-        return self.__message

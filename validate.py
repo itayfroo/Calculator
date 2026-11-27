@@ -1,4 +1,4 @@
-from exceptions import InvalidExpressionException
+from exceptions import InvalidExpressionException, BracketsException
 from operators import unary_operators
 from operators.precedence import OperatorPrecedence
 from operators.unary_operators import UnaryOperators
@@ -12,9 +12,7 @@ class Validate:
 
 
     @staticmethod
-    def check_char_validation(oper: str) -> bool:
-        precedences = OperatorPrecedence()
-        operators = precedences.get_operators_precedence().keys()
+    def check_char_validation(oper: str,operators) -> bool:
         return oper.isdigit() or oper in operators
 
 
@@ -23,28 +21,40 @@ class Validate:
         :param expression: list of operators and operands
         :return: True if for every '(' there is a ')' else False
         """
-        bracket_opener = 0
+        brackets = []
+        last =''
         for char in self._expression:
             if char == "(":
-                bracket_opener += 1
+                if last!='' and last not in OperatorPrecedence().get_operators_precedence().keys():
+                    raise BracketsException("'(' came after no operator!")
+                brackets.append(char)
+
             elif char == ")":
-                bracket_opener -= 1
-        if bracket_opener == 0:
+                if len(brackets)==0:
+                    raise BracketsException("')' came before a '(' !")
+                elif last=="(":
+                    raise BracketsException("Empty brackets '()'!")
+                brackets.pop()
+            last=char
+        if len(brackets) == 0:
             return True
         else:
-            raise InvalidExpressionException("InvalidExpressionException: Not every '(' has a ')'!")
+            raise BracketsException("Not every '(' has a ')'!")
 
 
     def _check_right_unary_operators(self):
         operators = UnaryOperators.operators["right"]
-        try:
-            for i in range(len(self._expression)):
-                if self._expression[i] in operators:
-                    if self._expression[i-1] !=")":
+        for i in range(len(self._expression)):
+            if self._expression[i] in operators:
+                if i == 0:
+                    raise InvalidExpressionException(f"'{self._expression[i]}' cant be first in expression!")
+                if self._expression[i-1] !=")":
+                    try:
                         float(self._expression[i-1])
-            return True
-        except Exception as e:
-            raise InvalidExpressionException(f"InvalidExpressionException: right unary operand has to come after a number!")
+                    except:
+                        raise InvalidExpressionException(f"Right unary operand has to come after a number!")
+        return True
+
 
 
 

@@ -1,3 +1,4 @@
+from exceptions import FactorialException
 from operators.binary_operators import BinaryOperators
 class UnaryOperators:
 
@@ -19,9 +20,9 @@ class UnaryOperators:
         if 0<=oper<2:
             return 1
         if oper<0:
-            return 0            #לזכור לשנותתתתתתתת
+            raise FactorialException("FactorialException: cant take negative factorial!")
         if oper>999:
-            raise RecursionError("maximum recursion depth exceeded")
+            raise FactorialException("FactorialException: maximum recursion depth exceeded(supports up to 999!)")
         return BinaryOperators.multiplication(oper,UnaryOperators.factorial(oper-1))
 
     @staticmethod

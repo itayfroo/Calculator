@@ -1,6 +1,10 @@
 from exceptions import InvalidExpressionException
-from operators.precedence import OperatorPrecedence
+from validate import Validate
+
+
 class Parser:
+
+
     @staticmethod
     def _parse_expression_spaces_tabs(expression: str)  ->str :
         """
@@ -13,13 +17,7 @@ class Parser:
 
 
     @staticmethod
-    def _check_validation(oper:str) -> bool:
-        precedences = OperatorPrecedence()
-        operators = precedences.get_operators_precedence().keys()
-        return oper.isdigit() or oper in operators
-
-    @staticmethod
-    def get_parsed_expression(expression:str) -> list:
+    def _parsed_expression_list(expression:str) -> list:
         """
         :param expression: string math expression
         :return: parsed list of operands and operators
@@ -29,10 +27,10 @@ class Parser:
         operand_flag = False
         operand = 0
         for x in parsed_expression:
-            if not Parser._check_validation(x):
-                raise InvalidExpressionException("InvalidExpressionException: a non exists operator")
+            if not Validate.check_char_validation(x):
+                raise InvalidExpressionException(f"InvalidExpressionException: a non exists operator {x}")
             if x.isdigit():
-                operand = operand * 10 + int(x)
+                operand = operand * 10 + float(x)
                 operand_flag = True
             else:
                 if operand_flag:
@@ -43,3 +41,14 @@ class Parser:
         if operand_flag:
             expression_list.append(operand)
         return expression_list
+
+
+    @staticmethod
+    def get_parsed_expression(expression:str) -> list:
+        parsed_expression = Parser._parsed_expression_list(expression)
+        validation = Validate(parsed_expression)
+        validation.validate_expression()
+        return parsed_expression
+
+
+

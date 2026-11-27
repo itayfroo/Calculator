@@ -1,7 +1,7 @@
 from operators.binary_operators import BinaryOperators
 class UnaryOperators:
 
-
+    operators = {"left":["~","-"],"right":["!"]}
     @staticmethod
     def tilda(oper:float) -> float:
         """
